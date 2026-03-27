@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Luxury Money Manager</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
@@ -32,6 +33,13 @@
             </div>
         </section>
 
+    <!-- Chart Section -->
+     <section class="chart-section">
+        <h2>Expense Distribution</h2>
+        <canvas id="expenseChart"></canvas>
+    </section>
+
+    <button id="downloadCSV" class="gold-btn">Download CSV</button>
         <!-- Filters -->
         <section class="filters">
             <select id="filterCategory">

@@ -255,3 +255,23 @@ select.error-border {
         width: 90%;
     }
 }
+
+/* ==============================
+   Chart Section
+================================ */
+.chart-section {
+    background: var(--card-dark);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.chart-section canvas {
+    max-width: 350px;
+    max-height: 350px;
+    margin: auto;
+}

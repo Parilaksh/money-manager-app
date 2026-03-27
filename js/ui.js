@@ -1,5 +1,6 @@
 import Storage from "./storage.js";
 import Transaction from "./transaction.js";
+import ChartManager from "./chart.js";
 
 export default class UI {
 
@@ -55,6 +56,8 @@ export default class UI {
         document.getElementById("totalIncome").textContent = `₹${income}`;
         document.getElementById("totalExpense").textContent = `₹${expense}`;
         document.getElementById("netBalance").textContent = `₹${income - expense}`;
+
+        ChartManager.render(transactions);
     }
 
     // Clear form

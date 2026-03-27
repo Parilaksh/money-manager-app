@@ -108,3 +108,24 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("date").value =
         new Date().toISOString().split("T")[0];
 });
+
+// Download CSV
+document.getElementById("downloadCSV").addEventListener("click", () => {
+
+    const transactions = Storage.getTransactions();
+
+    let csv = "Date,Category,SubCategory,Description,Amount\n";
+
+    transactions.forEach(t => {
+        csv += `${t.date},${t.category},${t.subCategory},${t.description},${t.amount}\n`;
+    });
+
+    const blob = new Blob([csv], { type: "text/csv" });
+    const url = window.URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "transactions.csv";
+    a.click();
+
+});
