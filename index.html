@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Money Manager</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Money Manager</h1>
+            <button id="addTransactionBtn" class="gold-btn">+ Add Transaction</button>
+        </header>
+
+        <!-- Summary Section -->
+        <section class="summary">
+            <div class="card income">
+                <h3>Total Income</h3>
+                <p id="totalIncome">₹0</p>
+            </div>
+
+            <div class="card expense">
+                <h3>Total Expense</h3>
+                <p id="totalExpense">₹0</p>
+            </div>
+
+            <div class="card balance">
+                <h3>Net Balance</h3>
+                <p id="netBalance">₹0</p>
+            </div>
+        </section>
+
+        <!-- Filters -->
+        <section class="filters">
+            <select id="filterCategory">
+                <option value="">All Categories</option>
+                <option value="Income">Income</option>
+                <option value="Expense">Expense</option>
+            </select>
+
+            <select id="filterSubCategory">
+                <option value="">All Sub-Categories</option>
+            </select>
+
+            <input type="date" id="startDate">
+            <input type="date" id="endDate">
+
+            <select id="sortOption">
+                <option value="">Sort By</option>
+                <option value="date-desc">Date (Newest)</option>
+                <option value="date-asc">Date (Oldest)</option>
+                <option value="amount-desc">Amount (High-Low)</option>
+                <option value="amount-asc">Amount (Low-High)</option>
+            </select>
+        </section>
+
+        <!-- Transaction Table -->
+        <section class="table-section">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Category</th>
+                        <th>Sub-Category</th>
+                        <th>Description</th>
+                        <th>Amount</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="transactionTable"></tbody>
+            </table>
+        </section>
+    </div>
+
+    <!-- Modal -->
+    <div id="transactionModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+
+            <h2>Add Transaction</h2>
+
+            <form id="transactionForm">
+                <input type="hidden" id="transactionId">
+
+                <label>Amount</label>
+                <input type="number" id="amount">
+                <small class="error" id="amountError"></small>
+
+                <label>Date</label>
+                <input type="date" id="date">
+                <small class="error" id="dateError"></small>
+
+                <label>Category</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="category" value="Income"> Income</label>
+                    <label><input type="radio" name="category" value="Expense"> Expense</label>
+                </div>
+                <small class="error" id="categoryError"></small>
+
+                <label>Sub Category</label>
+                <select id="subCategory"></select>
+                <small class="error" id="subCategoryError"></small>
+
+                <label>Description</label>
+                <textarea id="description" maxlength="100"></textarea>
+
+                <button type="submit" class="gold-btn">Save Transaction</button>
+            </form>
+
+        </div>
+    </div>
+
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>
